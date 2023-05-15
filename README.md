@@ -46,5 +46,11 @@ TestNG is a testing framework for Java that is designed to be more flexible and 
 
 ## Allure Report:
 
+![](https://raw.githubusercontent.com/Mahir-Afsar/Web-Automation-on-automationpractice-Website-with-Selenium-TestNG/main/Allure_Overview.png)
 
+
+![](https://raw.githubusercontent.com/Mahir-Afsar/Web-Automation-on-automationpractice-Website-with-Selenium-TestNG/main/Allure_Graphs.png)
+
+
+![](https://raw.githubusercontent.com/Mahir-Afsar/Web-Automation-on-automationpractice-Website-with-Selenium-TestNG/main/Allure_behaviors.png)
 
