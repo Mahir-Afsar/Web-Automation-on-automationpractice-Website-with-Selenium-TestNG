@@ -1,0 +1,20 @@
+package testDataPackage;
+
+import org.testng.annotations.DataProvider;
+
+public class DataSet {
+	@DataProvider(name = "registrationData")
+	public static Object dataset() {
+		Object[][] obj = 
+		{
+				{
+					"mahirasfar125@gmail.com","Mahir","Afsar","mahirpass@123","20","11","1999"
+				},
+				{
+					"mahirasfar124@gmail.com","mahirafsar","shoishob","shoishobpass@12345","10","9","1999"
+				}
+				
+		};
+		return obj;
+	}
+}

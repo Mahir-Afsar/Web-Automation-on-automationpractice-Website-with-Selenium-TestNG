@@ -1,0 +1,22 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class PO_001_HomePage {
+	WebDriver driver = null;
+	public PO_001_HomePage(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+//	By signInlinkTest = By.xpath("//a[contains(text(),'Sign in')]");
+	
+	@FindBy(xpath = "(//a[contains(text(),'Sign in')])")
+	public WebElement signInButton;
+	
+	public void clickSignInButton() {
+		signInButton.click();
+	}
+	
+}

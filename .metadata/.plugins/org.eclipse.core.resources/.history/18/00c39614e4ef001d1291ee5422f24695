@@ -1,0 +1,17 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class PO_001_HomePage {
+	WebDriver driver = null;
+	public PO_001_HomePage(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	By signInlinkTest = By.linkText("Sign in");
+	
+	public void clickSignInButton() {
+		driver.findElement(signInlinkTest).click();
+	}
+}

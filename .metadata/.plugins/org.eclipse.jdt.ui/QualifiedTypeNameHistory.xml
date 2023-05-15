@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.testng.annotations.BeforeClass"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.AfterSuite"/>
+    <fullyQualifiedTypeName name="io.github.bonigarcia.wdm.WebDriverManager"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeDriver"/>
+    <fullyQualifiedTypeName name="pageObjectPackage.PO_001_HomePage"/>
+    <fullyQualifiedTypeName name="pageObjectPackage.PO_002_SignInPage"/>
+    <fullyQualifiedTypeName name="pageObjectPackage.PO_003_CreateAnAccountPage"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.support.ui.Select"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.support.PageFactory"/>
+    <fullyQualifiedTypeName name="pageObjectPackage.PO_004_MyAccountPage"/>
+    <fullyQualifiedTypeName name="javax.swing.text.html.CSS"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.DataProvider"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="basePackage.DriverSetup"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.Test"/>
+    <fullyQualifiedTypeName name="testDataPackage.DataSet"/>
+    <fullyQualifiedTypeName name="org.testng.asserts.SoftAssert"/>
+    <fullyQualifiedTypeName name="java.awt.Desktop.Action"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.interactions.Actions"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.JavascriptExecutor"/>
+    <fullyQualifiedTypeName name="pageObjectPackage.PO_005_CasualDressesPage"/>
+    <fullyQualifiedTypeName name="pageObjectPackage.PO_006_CartPage"/>
+    <fullyQualifiedTypeName name="pageObjectPackage.PO_007_SummerDressesPage"/>
+    <fullyQualifiedTypeName name="pageObjectPackage.PO_005_EveningDressesPage"/>
+    <fullyQualifiedTypeName name="pageObjectPackage.PO_008_ShoppingCartSummary"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="pageObjectPackage.PO_009_AddressPage"/>
+    <fullyQualifiedTypeName name="commonPackage.CommonMethods"/>
+    <fullyQualifiedTypeName name="pageObjectPackage.PO_010_Shipping"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.support.FindBy"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.support.ui.ExpectedCondition"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.support.ui.WebDriverWait"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+    <fullyQualifiedTypeName name="java.time.Duration"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.support.ui.ExpectedConditions"/>
+    <fullyQualifiedTypeName name="java.lang.StackWalker.Option"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.BeforeSuite"/>
+    <fullyQualifiedTypeName name="io.qameta.allure.Description"/>
+    <fullyQualifiedTypeName name="io.qameta.allure.Step"/>
+</qualifiedTypeNameHistroy>

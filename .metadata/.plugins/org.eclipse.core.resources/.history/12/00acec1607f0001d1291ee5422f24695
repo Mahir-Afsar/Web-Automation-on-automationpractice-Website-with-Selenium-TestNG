@@ -1,0 +1,35 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class PO_003_CreateAnAccountPage {
+	WebDriver driver = null;
+	public PO_003_CreateAnAccountPage(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	By pageSubHeading = By.className("page-subheading");
+	By gender1Id = By.id("id_gender1");
+	By firstNameId = By.xpath("//input[@id='customer_firstname']");
+	By lastNameId = By.xpath("//input[@id='customer_lastname']");
+	By passwordId = By.xpath("//input[@id='passwd']");
+	By daysId = By.xpath("//select[@id='days']");
+	
+	public String pageSubHeadingText = "YOUR PERSONAL INFORMATION";
+	public String getSubHeadingText() {
+		return driver.findElement(pageSubHeading).getText();
+	}
+	
+	public void fillPersonalInformation(String firstName, String lastName, String password) {
+		driver.findElement(gender1Id).click();
+		driver.findElement(firstNameId).sendKeys(firstName);
+		driver.findElement(lastNameId).sendKeys(lastName);
+		driver.findElement(passwordId).sendKeys(password);
+		
+		Select s = new Select(null)
+		
+	}
+	
+}

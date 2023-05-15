@@ -1,0 +1,13 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class PO_008_ShoppingCartSummary {
+
+	WebDriver driver = null;
+	public PO_008_ShoppingCartSummary(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+}

@@ -1,0 +1,34 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class PO_009_AddressPage {
+	
+	WebDriver driver = null;
+	public PO_009_AddressPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(id = "address1")
+	public WebElement addressField;
+	
+	@FindBy(id = "city")
+	public WebElement cityField;
+	
+	@FindBy(id = "id_state")
+	public WebElement stateField;
+	
+	@FindBy(id = "postcode")
+	public WebElement postCodeField;
+	
+	@FindBy(id = "phone")
+	public WebElement phoneField;
+	
+	@FindBy(id = "phone_mobile")
+	public WebElement phoneMobileField;
+	
+}

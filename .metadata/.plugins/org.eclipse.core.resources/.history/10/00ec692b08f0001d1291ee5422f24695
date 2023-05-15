@@ -1,0 +1,50 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+public class PO_003_CreateAnAccountPage {
+	WebDriver driver = null;
+	public PO_003_CreateAnAccountPage(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	By pageSubHeading = By.className("page-subheading");
+	By gender1Id = By.id("id_gender1");
+	By firstNameId = By.xpath("//input[@id='customer_firstname']");
+	By lastNameId = By.xpath("//input[@id='customer_lastname']");
+	By passwordId = By.xpath("//input[@id='passwd']");
+	By daysId = By.xpath("//select[@id='days']");
+	By monthsId = By.xpath("//select[@id='months']");
+	By yearsId = By.xpath("//select[@id='years']");
+	
+	public String pageSubHeadingText = "YOUR PERSONAL INFORMATION";
+	public String getSubHeadingText() {
+		return driver.findElement(pageSubHeading).getText();
+	}
+	
+	public void selectMethod(By Id, String value) {
+		WebElement e = driver.findElement(Id);
+		Select s = new Select(e);
+		s.selectByValue(value);
+	}
+	
+	public void sendkeysMethod(By id, String value) {
+		driver.findElement(id).sendKeys(value);
+	}
+	
+	public void fillPersonalInformation(String firstName, String lastName, String password, String day, String month, String year) {
+		driver.findElement(gender1Id).click();		
+		sendkeysMethod(firstNameId, firstName);
+		sendkeysMethod(lastNameId, lastName);
+		sendkeysMethod(passwordId, password);
+		selectMethod(daysId, day);
+		selectMethod(monthsId, month);
+		selectMethod(yearsId, year);
+		
+		
+	}
+	
+}

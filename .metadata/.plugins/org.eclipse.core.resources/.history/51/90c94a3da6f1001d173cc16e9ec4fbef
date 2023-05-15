@@ -1,0 +1,48 @@
+package commonPackage;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class CommonMethods {
+	
+	public String getTitle(WebDriver driver) {
+		return driver.getTitle();
+	}
+	
+	public void sendText(WebElement element, String value) {
+		element.sendKeys(value);
+	}
+	
+	public void selectItem(WebElement element, String value) {
+		Select s = new Select(element);
+		s.selectByValue(value);
+	}
+	
+	public void clickElement(WebElement element) {
+		element.click();
+	}
+	
+	public void hover(WebDriver driver, WebElement element) {
+		Actions a = new Actions(driver);
+		a.clickAndHold(element).build().perform();;
+	}
+	
+	public void scrollToElement(WebDriver driver,WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();", element);
+
+	}
+	
+	public void scrollDownToUp(WebDriver driver) {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(document.body.scrollHeight,0);");
+	}
+	
+	public void scrollUpToDown(WebDriver driver) {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(document.body.scrollHeight,0);");
+	}
+}

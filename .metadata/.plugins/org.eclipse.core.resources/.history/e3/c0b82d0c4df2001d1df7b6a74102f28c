@@ -1,0 +1,40 @@
+package pageObjectPackage;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import commonPackage.CommonMethods;
+
+public class PO_006_CartPage extends CommonMethods{
+
+	WebDriver driver = null;
+	public PO_006_CartPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(css = "span[title='Continue shopping'] span:nth-child(1)")
+	public WebElement continueShoppingButton;
+	
+	@FindBy(xpath = "//div[@class='button-container']//a[@title='Proceed to checkout']//span")
+	public WebElement proceedToCheckoutButton;
+	
+	public void clickContinueShopping() {
+		clickElement(continueShoppingButton);
+	}
+	
+	
+	public void clickOnproceedToCheckout() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30)); 
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(proceedToCheckoutButton)); 
+		element.click();
+	}
+	
+	
+}

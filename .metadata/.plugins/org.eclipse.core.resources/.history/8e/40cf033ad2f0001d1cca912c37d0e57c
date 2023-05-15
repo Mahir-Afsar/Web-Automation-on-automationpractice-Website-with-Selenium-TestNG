@@ -1,0 +1,32 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import commonPackage.CommonMethods;
+
+public class PO_001_HomePage extends CommonMethods{
+	WebDriver driver = null;
+	public PO_001_HomePage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(xpath = "//a[contains(text(),'Sign in')]")
+	public WebElement signInButton;
+	
+	@FindBy(xpath = "//header/div[3]/div[1]/div[1]/div[6]/ul[1]/li[2]/a[1]")
+	public WebElement dressesHover;
+	
+	public void clickSignInButton() {
+		signInButton.click();
+	}
+	
+	public void hoverAndClickCasualDresses() {
+		hover(driver, dressesHover);
+	}
+	
+	
+}

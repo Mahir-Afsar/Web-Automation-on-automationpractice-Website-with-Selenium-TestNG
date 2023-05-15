@@ -1,0 +1,22 @@
+package commonPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+public class CommonMethods {
+	
+	public String getTitle(WebDriver driver) {
+		return driver.getTitle();
+	}
+	
+	public void sendText(WebElement element, String value) {
+		element.sendKeys(value);
+	}
+	
+	public void selectItem(WebElement element, String value) {
+		Select s = new Select(element);
+		s.selectByValue(value);
+	}
+	
+}

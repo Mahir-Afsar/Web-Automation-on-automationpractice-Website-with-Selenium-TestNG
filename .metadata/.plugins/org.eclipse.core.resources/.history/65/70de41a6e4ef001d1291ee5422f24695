@@ -1,0 +1,23 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import commonPackage.CommonMethods;
+
+public class PO_002_SignInPage extends CommonMethods{
+	WebDriver driver = null;
+	public PO_002_SignInPage(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	By emailId = By.id("email_create");
+	
+	public String signInPageTitle = "Login - My Store";
+	
+	public void createAccountWithEmail() {
+		
+	}
+	
+
+}

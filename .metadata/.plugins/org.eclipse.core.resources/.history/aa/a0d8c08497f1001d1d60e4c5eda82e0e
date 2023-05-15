@@ -1,0 +1,22 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import commonPackage.CommonMethods;
+
+public class PO_008_ShoppingCartSummary extends CommonMethods{
+
+	WebDriver driver = null;
+	public PO_008_ShoppingCartSummary(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(id = "cart_title")
+	public WebElement cartTitle;
+	
+	
+}

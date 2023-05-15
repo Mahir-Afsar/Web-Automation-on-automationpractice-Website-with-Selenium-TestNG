@@ -1,0 +1,24 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import commonPackage.CommonMethods;
+
+public class PO_006_CartPage extends CommonMethods{
+
+	WebDriver driver = null;
+	public PO_006_CartPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(css = "//span[@title='Continue shopping']//span[1]")
+	public WebElement continueShoppingButton;
+	
+	public void clickContinueShopping() {
+		clickElement(continueShoppingButton);
+	}
+}

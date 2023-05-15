@@ -1,0 +1,17 @@
+package commonPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class CommonMethods {
+	
+	WebDriver driver = null;
+	public String getTitle(WebDriver driver) {
+		return driver.getTitle();
+	}
+	public void selectAnOption() {
+		WebElement e = driver.findElement(selectName);
+		Select s = new Select(e);
+		s.selectByIndex(1);
+	}
+}

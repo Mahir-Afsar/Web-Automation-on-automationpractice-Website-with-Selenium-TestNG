@@ -1,0 +1,43 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import commonPackage.CommonMethods;
+
+public class PO_007_SummerDressesPage extends CommonMethods{
+
+	WebDriver driver = null;
+	public PO_007_SummerDressesPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(id = "ul_layered_id_attribute_group_3")
+	public WebElement colorContainer;
+	
+	@FindBy(xpath = "//input[@id='layered_id_attribute_group_8']")
+	public WebElement blueColor;
+	
+	@FindBy(className = "product-container")
+	public WebElement summerDressContainer;
+	
+	@FindBy(xpath = "//a[@title='Add to cart']/span")
+	public WebElement addToCartButton;
+	
+	public String summerDressPageTitle = "Summer Dresses - My Store";
+	public String SummerDressesColorBluePage = "Summer Dresses > Color Blue - My Store";
+	
+	public void scrollToProductAndClickOnFilter() {
+		scrollToElement(driver, colorContainer);
+		clickElement(blueColor);
+	}
+	
+	public void summerDressAddToTheCart() {
+//		scrollToElement(driver, blueColor);
+//		hover(driver, blueColor);
+		clickElement(addToCartButton);
+	}
+}

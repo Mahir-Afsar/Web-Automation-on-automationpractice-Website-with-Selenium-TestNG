@@ -1,0 +1,93 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import commonPackage.CommonMethods;
+
+public class PO_003_CreateAnAccountPage extends CommonMethods{
+	WebDriver driver = null;
+	public PO_003_CreateAnAccountPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	
+	@FindBy(xpath = "//input[@id='id_gender1']")
+	public WebElement mrGenderId;
+	
+	@FindBy(xpath = "//input[@id='id_gender2']")
+	public WebElement mrsGenderId;
+	
+	@FindBy(xpath = "//input[@id='customer_firstname']")
+	public WebElement firstNameId;
+
+	@FindBy(xpath = "//input[@id='customer_lastname']")
+	public WebElement lastNameId;
+	
+	@FindBy(xpath = "//input[@id='passwd']")
+	public WebElement passwordId;
+	
+	@FindBy(xpath = "//select[@id='days']")
+	public WebElement daysId;
+	
+	@FindBy(xpath = "//select[@id='months']")
+	public WebElement monthsId;
+	
+	@FindBy(xpath = "//select[@id='years'")
+	public WebElement yearsId;
+	
+	@FindBy(xpath = "//input[@id='newsletter']")
+	public WebElement newsletterId;
+	
+	@FindBy(xpath = "//input[@id='optin']")
+	public WebElement optinId;
+	
+	@FindBy(xpath = "//button[@id='submitAccount']")
+	public WebElement submitButtonId;
+	
+	@FindBy(className = "page-subheading")
+	public WebElement pageSubHeading;
+	
+	public String pageSubHeadingText = "YOUR PERSONAL INFORMATION";
+	
+	
+	public void selectMethod(By Id, String value) {
+		WebElement e = driver.findElement(Id);
+		Select s = new Select(e);
+		s.selectByValue(value);
+	}
+	
+	public void sendkeysMethod(By id, String value) {
+		driver.findElement(id).sendKeys(value);
+	}
+	
+	public void clickMethod(By id) {
+		driver.findElement(id).click();
+	}
+	
+	public void fillPersonalInformation(String firstName, String lastName, String password, String day, String month, String year) {
+		mrGenderId.click();	
+		sendText(firstNameId, firstName);
+		sendkeysMethod(lastNameId, lastName);
+		sendkeysMethod(passwordId, password);
+		selectMethod(daysId, day);
+		selectMethod(monthsId, month);
+		selectMethod(yearsId, year);
+		clickMethod(newsletterId);
+		clickMethod(optinId);
+	}
+	
+	public void clickOnRegisterButton() {
+		driver.findElement(submitButtonId).click();
+	}
+	
+	public void logoutMethod() {
+		driver.findElement(By.xpath("//a[contains(text(),'Sign out')]")).click();
+	}
+	
+}

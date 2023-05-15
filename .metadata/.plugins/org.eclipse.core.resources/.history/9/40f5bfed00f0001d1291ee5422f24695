@@ -1,0 +1,50 @@
+package testCasesPackage;
+
+import java.time.Duration;
+
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import basePackage.DriverSetup;
+import pageObjectPackage.PO_001_HomePage;
+import pageObjectPackage.PO_002_SignInPage;
+import pageObjectPackage.PO_003_CreateAnAccountPage;
+import testDataPackage.DataSet;
+
+public class TC001_CreateNewAccount extends DriverSetup{
+	@Test(dataProvider = "registrationData",dataProviderClass = DataSet.class)
+	public static void registration(String email, String firstName, String lastName, String password, String day, String month, String year) throws InterruptedException {
+		String baseUrl = "http://automationpractice.pl/index.php";
+		driver.get(baseUrl);
+		driver.manage().window().maximize();
+		new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		PO_001_HomePage homePage = new PO_001_HomePage(driver);
+		PO_002_SignInPage signInPage = new PO_002_SignInPage(driver);
+//		PO_003_CreateAnAccountPage register = new PO_003_CreateAnAccountPage(driver);
+		SoftAssert softAssert = new SoftAssert();
+		
+		//Click on sign in page
+		homePage.clickSignInButton();
+		Thread.sleep(3000);
+		
+		//Assertion of sign in page Title
+		softAssert.assertEquals(signInPage.getTitle(driver), signInPage.signInPageTitle);
+		
+		//Create a New Account with email
+		signInPage.createAccountWithEmail(email);
+		Thread.sleep(3000);
+		
+		//Assertion of sub heading text
+//		softAssert.assertEquals(register.getSubHeadingText(), register.pageSubHeadingText);
+		
+		//provide new user personal information
+//		register.fillPersonalInformation(firstName, lastName, password);
+//		Thread.sleep(4000);
+		
+		// Assert all
+		softAssert.assertAll();
+	}
+	
+}

@@ -1,0 +1,16 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.WebDriver;
+
+public class PO_002_SignInPage {
+	WebDriver driver = null;
+	public PO_002_SignInPage(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	public String signInPageTitle = "Login - My Store";
+	
+	public String getTitle(WebDriver driver) {
+		return driver.getTitle();
+	}
+}

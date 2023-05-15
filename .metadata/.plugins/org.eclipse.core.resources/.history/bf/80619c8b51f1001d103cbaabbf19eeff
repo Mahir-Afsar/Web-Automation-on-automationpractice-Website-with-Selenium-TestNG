@@ -1,0 +1,13 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class PO_005_CasualDressesPage {
+
+	WebDriver driver = null;
+	public PO_005_CasualDressesPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+}

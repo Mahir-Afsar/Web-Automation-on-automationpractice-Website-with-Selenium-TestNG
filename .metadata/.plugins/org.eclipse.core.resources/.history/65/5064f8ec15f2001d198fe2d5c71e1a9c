@@ -1,0 +1,24 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import commonPackage.CommonMethods;
+
+public class PO_010_Shipping extends CommonMethods{
+
+	WebDriver driver = null;
+	public PO_010_Shipping(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(name = "delivery_option[453]")
+	public WebElement deliveryOption;
+	
+	public void clickOnDeliveryOption() {
+		deliveryOption.click();
+	}
+}

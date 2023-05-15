@@ -1,0 +1,129 @@
+package testCasesPackage;
+
+import java.time.Duration;
+
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import basePackage.DriverSetup;
+import pageObjectPackage.PO_001_HomePage;
+import pageObjectPackage.PO_002_SignInPage;
+import pageObjectPackage.PO_005_EveningDressesPage;
+import pageObjectPackage.PO_006_CartPage;
+import pageObjectPackage.PO_007_SummerDressesPage;
+import pageObjectPackage.PO_008_ShoppingCartSummary;
+import pageObjectPackage.PO_009_AddressPage;
+import pageObjectPackage.PO_010_Shipping;
+import pageObjectPackage.PO_004_MyAccountPage;
+import testDataPackage.DataSet;
+
+public class TC002_Login_And_Purchase extends DriverSetup{
+	
+	@Test(dataProvider = "userInfo", dataProviderClass = DataSet.class)
+	public static void loginAndPurchase(String email, String password, String address, String city, String state, String zip, String homePhone, String mobilePhone) throws InterruptedException {
+		String baseUrl = "http://automationpractice.pl/index.php";
+		driver.get(baseUrl);
+		driver.manage().window().maximize();
+		new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		PO_001_HomePage homePage = new PO_001_HomePage(driver);
+		PO_002_SignInPage signInPage = new PO_002_SignInPage(driver);
+		PO_004_MyAccountPage myAccount = new PO_004_MyAccountPage(driver);
+		PO_005_EveningDressesPage eveningDressesPage = new PO_005_EveningDressesPage(driver);
+		PO_006_CartPage cartPage = new PO_006_CartPage(driver);
+		PO_007_SummerDressesPage summerDressesPage = new PO_007_SummerDressesPage(driver);
+		PO_008_ShoppingCartSummary summaryPage = new PO_008_ShoppingCartSummary(driver);
+		PO_009_AddressPage addressPage = new PO_009_AddressPage(driver);
+		PO_010_Shipping shippingPage = new PO_010_Shipping(driver);
+		SoftAssert softAssert = new SoftAssert();
+		
+		//Go to sign in page
+		homePage.clickSignInButton();
+		
+		//Assertion of signInpage
+		softAssert.assertEquals(signInPage.getTitle(driver), signInPage.signInPageTitle);
+		
+		//Provide email and password and then click on Sign in button
+		signInPage.loginWithEmailAndPassword(email, password);
+		
+		
+		//hover on Dresses and click on Casual Dresses
+		homePage.hoverAndClickCasualDresses();
+		Thread.sleep(2000);
+		//Assertion of casual dress page title
+		softAssert.assertEquals(eveningDressesPage.getTitle(driver), eveningDressesPage.eveningDressPageTitle);
+		//System.out.println(casualDressesPage.getTitle(driver));
+		//System.out.println(casualDressesPage.casualDressPageTitle);
+		
+		//scroll to the product and hover on product and click on to add the product into the cart
+		eveningDressesPage.productAddToTheCart();
+//		Thread.sleep(5000);
+		
+		//click on Continue Shopping
+//		cartPage.clickContinueShopping();
+//		Thread.sleep(5000);
+		//Scroll to top
+//		eveningDressesPage.scrollDownToUp(driver);
+		
+		//hover on Dresses and click on Summer Dresses
+		homePage.hoverAndClickSummerDresses();
+//		Thread.sleep(5000);
+		
+		//Assertion of summer dress page title
+		softAssert.assertEquals(summerDressesPage.getTitle(driver), summerDressesPage.summerDressPageTitle);
+		
+		//Scroll to the product and click on the list with blue color
+		summerDressesPage.scrollToProductAndClickOnFilter();
+		Thread.sleep(3000);
+		
+		//Assertion of summer dress blue color page title
+//		softAssert.assertEquals(summerDressesPage.getTitle(driver), summerDressesPage.SummerDressesColorBluePage);
+		//System.out.println(summerDressesPage.getTitle(driver));
+		
+		//scroll to the product and hover on product and click on to print summer dress
+		summerDressesPage.addToCartButtonSummerDress();
+		
+		// click on add to cart
+//		summerDressesPage.addToCartButtonSummerDress();
+		Thread.sleep(3000);
+		
+		// click on proceed to checkout
+		cartPage.clickOnproceedToCheckout();
+		Thread.sleep(3000);
+		
+		//summary page scroll to down
+		summaryPage.scrollToDown();
+//		Thread.sleep(5000);
+//		
+//		//click on proceed to checkout
+		summaryPage.clickOnCheckout();
+		Thread.sleep(3000);
+		
+		//fill all the address information
+		addressPage.scrollToMyAddress();
+		addressPage.fillAddressInformation(address, city, state, zip, homePhone, mobilePhone);
+		addressPage.scrollToDownMyAddress();
+		addressPage.clickOnSubmitButton();
+		Thread.sleep(3000);
+		addressPage.scrollToDownMyAddress();
+		addressPage.clickOnProceedToCheckoutButton();
+		Thread.sleep(3000);
+		
+		shippingPage.scrollToDownShippingPage();
+		shippingPage.clickOnDeliveryOption();
+		shippingPage.clickOnProcessedToCheckout();
+		Thread.sleep(3000);
+		
+		shippingPage.scrollToDownShippingPage();
+		shippingPage.clickOnPaymentModule();
+		Thread.sleep(3000);
+		
+		shippingPage.scrollToDownShippingPage();
+		shippingPage.clickOnConfirmMyOrder();
+		
+		//Extra
+		myAccount.signoutButton();
+		softAssert.assertAll();
+	}
+}

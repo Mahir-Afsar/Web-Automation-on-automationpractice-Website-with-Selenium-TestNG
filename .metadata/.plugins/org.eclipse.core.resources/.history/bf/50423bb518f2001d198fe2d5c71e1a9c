@@ -1,0 +1,47 @@
+package pageObjectPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import commonPackage.CommonMethods;
+
+public class PO_010_Shipping extends CommonMethods{
+
+	WebDriver driver = null;
+	public PO_010_Shipping(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(name = "//input[@id='cgv']")
+	public WebElement termsOfService;
+	
+	@FindBy(xpath = "//button[@name='processCarrier']")
+	public WebElement checkoutButton;
+	
+	@FindBy(xpath = "//p[@class='payment_module']//a[@title='Pay by check.']")
+	public WebElement paymentModulePayByCheck; 
+	
+	@FindBy(xpath = "//button[@class='button btn btn-default button-medium']")
+	public WebElement confirmMyOrder;
+	
+	public void clickOnDeliveryOption() {
+		termsOfService.click();
+	}
+	
+	public void scrollToDownShippingPage() {
+		scrollUpToDown(driver);
+	}
+	
+	public void clickOnProcessedToCheckout() {
+		checkoutButton.click();
+	}
+	
+	public void clickOnPaymentModule() {
+		paymentModulePayByCheck.click();
+	}
+	
+	
+}
